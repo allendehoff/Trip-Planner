@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trip Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
 </head>
 <body>
-    
+    <div class="grid-container">
+        <header>
+            <h1>Plan Your Trip!</h1>
+            <p>Use the menus below to select a starting and ending location as well as what option you would like to see.</p>
+        </header>
+        <div class="grid-x">
+            <form>
+                <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="medium-6 cell">
+                    <label>Starting Location
+                        <input type="text">
+                    </label>
+                    </div>
+                    <div class="medium-6 cell">
+                    <label>Destination
+                        <input type="text">
+                    </label>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class="grid-x">
+            <div class="grid-x grid-padding-x">
+                <fieldset class="cell">
+                    <legend>What would you like to see?</legend>
+                    <input id="checkbox1" type="checkbox"><label for="checkbox1">Flight</label>
+                    <input id="checkbox2" type="checkbox"><label for="checkbox2">Hotel</label>
+                    <input id="checkbox3" type="checkbox"><label for="checkbox3">Rental Car (destination)</label>
+                    <input id="checkbox4" type="checkbox"><label for="checkbox3">Driving Directions</label>
+                    <input id="checkbox5" type="checkbox"><label for="checkbox3">Rental Car (en route)</label>
+                </fieldset>
+            </div>
+        </div>
+        <div class="grid-x">
+            <a class="button primary cell" href="#">Search</a>
+        </div>
+        <div id="results" class="grid-x">
+            <h2>Results</h2>
+        </div>
+    </div>
+
 </body>
 </html>
