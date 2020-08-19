@@ -24,4 +24,14 @@ This application will alow a user to enter their current location and a desired 
 
 * access to API results and ability to display results in a logical manner
 
+#### Parameters:
+
+* Start Location
+* Start Date
+* Destination
+* Hotel (potential: number of adults, check-in, number of rooms, number of nights)
+* Restaurants (5)
+
+
+
 
