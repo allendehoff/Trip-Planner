@@ -41,5 +41,6 @@ function restaurantSearch(zipcode){
     })
 };
 
-restaurantSearch("23112-0003")
+// restaurantSearch("23112-0003")
+
 
