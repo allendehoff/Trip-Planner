@@ -1,5 +1,7 @@
 function restaurantSearch(zipcode){
-    var zip = zipcode
+    var zip = zipcode.substring(0,5)
+    console.log(zip)
+
     var restName
     var restPhone
     var restAddress
@@ -39,5 +41,5 @@ function restaurantSearch(zipcode){
     })
 };
 
-restaurantSearch(23112)
+restaurantSearch("23112-0003")
 
