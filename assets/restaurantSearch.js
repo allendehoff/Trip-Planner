@@ -43,4 +43,7 @@ function restaurantSearch(zipcode){
 
 // restaurantSearch("23112-0003")
 
-
+$(document).on("click", ".hotel-address", function(){
+    var hotelZip = $(this).attr("data-zip")
+    restaurantSearch(hotelZip)
+})
