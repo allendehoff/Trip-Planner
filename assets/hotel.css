@@ -1,0 +1,36 @@
+#hotel {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+}
+
+.hotel-info {
+    display: grid;
+    grid-template-columns: 150px 300px auto 200px;
+    border-bottom: 10px solid goldenrod;
+    align-items: center;
+}
+
+.hotel-image {
+    width: 150px;
+    height: 150px;
+}
+
+.hotel-name {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.hotel-contact {
+    font-size: 15px;
+    text-align: center;
+}
+
+.hotel-price {
+    font-size: 30px;
+    text-align: center;
+}
+
+.hotel-phone {
+    margin-top: 5px;
+}
