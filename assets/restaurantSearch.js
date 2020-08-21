@@ -1,24 +1,45 @@
-function restaurantSearch(lat,long){
-    var queryURL = "https://us-restaurant-menus.p.rapidapi.com/restaurants/geo?"
-    + "page=1"
-    + "&distance=5"
-    + "&lon=" + "-73.992378"
-    + "&lat=" + "40.68919"
-            
+function restaurantSearch(zipcode){
+    var zip = zipcode.substring(0,5)
+    console.log(zip)
 
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-            headers: {
-		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
-		"x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
-	}
-        })
-        .then(function(data){
-            console.log(data.result.data[0].restaurant_name)
-            console.log(data.result.data[0].restaurant_phone)
-            console.log(data.result.data[0].address.formatted)
-        })
-}
+    var restName
+    var restPhone
+    var restAddress
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/"
+                + zip
+                + "?page=1",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com",
+            "x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
+        }
+    }
+    
+    $.ajax(settings).done(function (data) {
+        console.log(data);
+        var restaurantResults = $("<div>").attr("id", "restaurantResults")
+        for (var i = 0; i <= 4; i++){
+            restName = data.result.data[i].restaurant_name
+            restPhone = data.result.data[i].restaurant_phone
+            restAddress = data.result.data[i].address.formatted
+            console.log(restName)
+            console.log(restPhone)
+            console.log(restAddress)
 
-restaurantSearch()
+            var newRestaurant = $("<div>").addClass("restaurant")
+            newRestaurant.append($("<h4>").text(restName))
+            newRestaurant.append($("<h5>").text(restPhone))
+            newRestaurant.append($("<h5>").text(restAddress))
+
+            $(restaurantResults).append(newRestaurant)
+        }
+        $("#restaurants").append(restaurantResults)
+
+    })
+};
+
+restaurantSearch("23112-0003")
+
