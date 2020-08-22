@@ -1,36 +1,62 @@
-#hotel {
+/* #hotel {
     display: grid;
     grid-template-rows: repeat(5, auto);
-}
+} */
 
 .hotel-info {
     display: grid;
-    grid-template-columns: 150px 300px auto 200px;
     border-bottom: 10px solid goldenrod;
     align-items: center;
+    grid-template-areas: "image name contact price";
 }
 
 .hotel-image {
     width: 150px;
     height: 150px;
+    grid-area: image;
 }
 
 .hotel-name {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    grid-area: name;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .hotel-contact {
     font-size: 15px;
     text-align: center;
+    grid-area: contact;
 }
 
 .hotel-price {
     font-size: 30px;
     text-align: center;
+    grid-area: price;
 }
 
 .hotel-phone {
     margin-top: 5px;
+}
+
+.hotel-address {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+@media (max-width: 900px){
+    .hotel-info {
+        grid-template-areas: 
+            "image"
+            "name"
+            "contact"
+            "price";
+    }
+
+    .hotel-image {
+        align-self: center;
+        justify-self: center;
+    }
 }
