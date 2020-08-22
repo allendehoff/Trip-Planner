@@ -16,21 +16,21 @@
     <!-- Link with MapBox -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/0c51be27e0.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <div class="grid-container">
+    <div class="grid-container" id="container">
         <header>
             <h1>Plan Your Trip!</h1>
             <p>Use the fields below to input a starting location and date and a destination.</p>
         </header>
         <div id="search" class="grid-x">
-            <form>
-                <div class="grid-container">
-                    <div class="grid-x grid-padding-x">
+            <form class="grid-x grid-padding-x">
                         <div class="medium-4 cell">
                             <label>Starting Location
+                            <button id="userLocBtn" class="fas fa-search-location"></button>
                                 <input type="text" placeholder="Street address, City, State" id="startLoc">
                             </label>
                         </div>
@@ -44,16 +44,16 @@
                                 <input type="text" placeholder="City, State" id="endLoc">
                             </label>
                         </div>
-                    </div>
-                    <button class="button primary cell" id="searchButton">Search</button>
-                </div>
+                        <button class="button primary cell" id="searchButton">Search</button>
             </form>
         </div>
         <div id="results" class="grid-container">
             <h2 class="cell">Results</h2>
-            <h3 id="drivingDirections" class="cell">Driving Directions:</h3>
-            <div id="map"></div>
             <h3 id="hotels" class="cell">Hotels at Destination:</h3>
+            <div id="drivingDirections" class="cell">
+                <h3>Driving Directions:</h3>
+                <div id="map"></div>
+            </div>
             <h3 id="restaurants" class="cell">Restaurants at Destination:</h3>
         </div>
     </div>
