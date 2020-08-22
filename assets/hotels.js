@@ -18,7 +18,7 @@ function citySearch(){
         }
     }
     
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).then(function (response) {
         console.log(response);
         locationID = response.data[0].result_object.location_id;
         hotelList(locationID);
@@ -26,7 +26,7 @@ function citySearch(){
 }
 
 function hotelList(area){
-    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=5&order=asc&lang=en_US&sort=recommended&location_id=" + area + "&adults=1&checkin=2020-09-20&rooms=1&nights=2"
+    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=1&order=asc&lang=en_US&sort=recommended&location_id=" + area + "&adults=1&checkin=2020-09-20&rooms=1&nights=2"
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -38,7 +38,7 @@ function hotelList(area){
         }
     }
     
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).then(function (response) {
         console.log(response);
 
         for (var i = 0; i < response.data.length; i++){
@@ -49,7 +49,7 @@ function hotelList(area){
 }
 
 function specifiedHotel(hotel){
-    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=1&nights=2&currency=USD&lang=en_US&child_rm_ages=7%252C10&checkin=2020-08-20&location_id=" + hotel;
+    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/get-details?adults=1&nights=2&currency=USD&lang=en_US&child_rm_ages=7%252C10&checkin=2020-09-20&location_id=" + hotel;
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -61,7 +61,7 @@ function specifiedHotel(hotel){
         }
     }
     
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).then(function (response) {
         console.log(response);
 
         var zipCode = response.data[0].address_obj.postalcode;
