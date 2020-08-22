@@ -5,3 +5,11 @@
   height: 400px;
   display: none;
 }
+
+@media screen and (max-width: 860px) {
+  #map {
+    min-width: 320px;
+    min-height: 200px;
+    max-width: 100%;
+  }
+}
