@@ -1,4 +1,11 @@
+body {
+    background-color: #3C6E71;
+}
+
 #container {
+    background-color: #C3C49E;
+    min-height: 100vh;
+    height: 100%;
     text-align: center;
     /* justify-items: center; */
 }
@@ -6,4 +13,24 @@
 #search {
     justify-content: center;
     text-align: left;
+}
+
+#userLocBtn {
+    background-color: #1779ba;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.hotel-info {
+    background-color: white;
+}
+
+.warning {
+    color: red;
+    font-style: italic;
+}
+
+.hide {
+    display: none;
 }
