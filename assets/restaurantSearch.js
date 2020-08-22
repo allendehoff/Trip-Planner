@@ -25,9 +25,9 @@ function restaurantSearch(zipcode){
             restName = data.result.data[i].restaurant_name
             restPhone = data.result.data[i].restaurant_phone
             restAddress = data.result.data[i].address.formatted
-            console.log(restName)
-            console.log(restPhone)
-            console.log(restAddress)
+            // console.log(restName)
+            // console.log(restPhone)
+            // console.log(restAddress)
 
             var newRestaurant = $("<div>").addClass("restaurant")
             newRestaurant.append($("<h4>").text(restName))
@@ -43,7 +43,8 @@ function restaurantSearch(zipcode){
 
 // restaurantSearch("23112-0003")
 
-$(document).on("click", ".hotel-address", function(){
-    var hotelZip = $(this).attr("data-zip")
-    restaurantSearch(hotelZip)
-})
+// ------------ In main.js --------------
+// $(document).on("click", ".hotel-address", function(){
+//     var hotelZip = $(this).attr("data-zip")
+//     restaurantSearch(hotelZip)
+// })

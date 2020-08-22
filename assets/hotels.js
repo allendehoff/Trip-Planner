@@ -1,8 +1,10 @@
 var locationID;
-$("#searchButton").on("click", function(event){
-    event.preventDefault();
-    citySearch();
-});
+
+// --------- in main.js -------------
+// $("#searchButton").on("click", function(event){
+//     event.preventDefault();
+//     citySearch();
+// });
 
 function citySearch(){
     var cityState = $("#endLoc").val();
