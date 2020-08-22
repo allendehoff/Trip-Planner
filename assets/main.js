@@ -17,3 +17,8 @@ $(document).on("click", ".hotel-address", function () {
   Geocode2Addresses(origin, destination)
 
 })
+
+$("#userLocBtn").on("click", function(){
+  event.preventDefault();
+  getCurrentLoc();
+})

@@ -34,7 +34,16 @@ function revGeocode(lat, lon) {
     .then(function (response) {
       console.log("revGeocode:");
       console.log(response);
-      console.log(response.display_name);
+
+      var formattedAddress = response.address.house_number + " "
+        + response.address.road + " ,"
+        + response.address.city + " ,"
+        + response.address.state + " "
+        + response.address.postcode
+
+      console.log(formattedAddress);
+      $("#startLoc").val(formattedAddress);
+
     })
     .catch(function (error) {
       console.log(error);
