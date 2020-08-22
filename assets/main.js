@@ -2,7 +2,10 @@
 
 $("#searchButton").on("click", function (event) {
   event.preventDefault();
-  citySearch();
+  if (($("#startLoc") && $("#check-in") && $("#endLoc")).val().trim() !== ""){
+    citySearch()
+  }
+  else {toggleWarning();}
 });
 
 $(document).on("click", ".hotel-address", function () {
@@ -18,7 +21,15 @@ $(document).on("click", ".hotel-address", function () {
 
 })
 
+
 $("#userLocBtn").on("click", function(){
   event.preventDefault();
   getCurrentLoc();
 })
+
+  
+function toggleWarning(){
+
+  console.log("ERROR")
+}
+

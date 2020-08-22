@@ -39,6 +39,32 @@ function restaurantSearch(zipcode){
         $("#restaurants").append(restaurantResults)
 
     })
+    // $.ajax(settings).done(function (data) {
+    //     console.log(data);
+    //     var restaurantResults = $("<div>").attr("id", "restaurantResults").addClass("accordion").attr("data-accordion")
+    //     for (var i = 0; i <= 4; i++){
+    //         restName = data.result.data[i].restaurant_name
+    //         restPhone = data.result.data[i].restaurant_phone
+    //         restAddress = data.result.data[i].address.formatted
+    //         // console.log(restName)
+    //         // console.log(restPhone)
+    //         // console.log(restAddress)
+
+    //         var newRestaurant = $("<div>").addClass("restaurant accordion-item")
+    //         var contentDiv = $("<div>").addClass("accordion-content")
+    //         newRestaurant.append($("<h4>").text(restName).addClass("accordion-title"))
+    //         contentDiv.append($("<h5>").text(restPhone))
+    //         contentDiv.append($("<h5>").text(restAddress))
+    //         newRestaurant.append($(contentDiv))
+    //         if (i = 0){
+    //             newRestaurant.addClass("is-active")
+    //         }
+
+    //         $(restaurantResults).append(newRestaurant)
+    //     }
+    //     $("#restaurants").append(restaurantResults)
+
+    // })
 };
 
 // restaurantSearch("23112-0003")
