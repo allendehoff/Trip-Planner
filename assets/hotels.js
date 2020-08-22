@@ -28,7 +28,13 @@ function citySearch(){
 }
 
 function hotelList(area){
-    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=1&order=asc&lang=en_US&sort=recommended&location_id=" + area + "&adults=1&checkin=2020-09-20&rooms=1&nights=2"
+    var checkInElement = $("#check-in").val();
+    var inputMoment = moment(checkInElement, "MM-DD-YYYY");
+    var checkIn = inputMoment.format("YYYY-MM-DD");
+    console.log(checkIn);
+
+    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=1&order=asc&lang=en_US&sort=recommended&location_id=" + area + "&adults=1&rooms=1&nights=2&checkin=" + checkIn;
+
     var settings = {
         "async": true,
         "crossDomain": true,
