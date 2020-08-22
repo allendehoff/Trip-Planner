@@ -21,7 +21,15 @@ $(document).on("click", ".hotel-address", function () {
 
 })
 
+
+$("#userLocBtn").on("click", function(){
+  event.preventDefault();
+  getCurrentLoc();
+})
+
+  
 function toggleWarning(){
 
   console.log("ERROR")
 }
+
