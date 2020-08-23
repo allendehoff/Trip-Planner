@@ -2,7 +2,7 @@
 
 $("#searchButton").on("click", function (event) {
   event.preventDefault();
-  if (($("#startLoc") && $("#check-in") && $("#endLoc")).val().trim() !== ""){
+  if (($("#startLoc") || $("#endLoc")).val().trim() !== ""){
     citySearch()
   }
   else {toggleWarning();}
@@ -32,4 +32,3 @@ function toggleWarning(){
 
   console.log("ERROR")
 }
-
