@@ -1,11 +1,7 @@
-/* #hotel {
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-} */
-
 .hotel-info {
     display: grid;
     border-bottom: 10px solid goldenrod;
+    border-top: 10px solid goldenrod;
     align-items: center;
     grid-template-areas: "image name contact price";
 }
