@@ -28,7 +28,7 @@
         </header>
         <div id="search" class="grid-x">
             <form class="grid-x grid-padding-x">
-                        <div class="medium-4 cell">
+                        <div class="medium-6 cell">
                             <label>Starting Location
                             <button id="userLocBtn" class="fas fa-search-location"></button>
                                 <input type="text" placeholder="Street address, City, State" id="startLoc">
@@ -36,7 +36,7 @@
                             </label>
                         </div>
 
-                        <div class="medium-4 cell">
+                        <div class="medium-6 cell">
                             <label>Destination
                                 <input type="text" placeholder="City, State" id="endLoc">
                                 <p id="end-loc-warning" class="warning hide">Please enter a valid City and State</p>
@@ -45,17 +45,17 @@
                         <button class="button primary cell" id="searchButton">Search</button>
             </form>
         </div>
-        <div id="results" class="grid-container">
+        <div id="results" class="grid-container hide">
             <h2 class="cell">Results</h2>
             <div id="hotels" class="cell">
                 <h3>Hotels at Destination:</h3>
                 <h4>Click hotel address for directions and local restaurants.</h4>
             </div>
-            <div id="drivingDirections" class="cell">
+            <div id="drivingDirections" class="cell hide">
                 <h3>Driving Information:</h3>
                 <div id="map"></div>
             </div>
-            <h3 id="restaurants" class="cell">Restaurants at Destination:</h3>
+            <h3 id="restaurants" class="cell hide">Restaurants at Destination:</h3>
         </div>
         <div id="overlay" class="hide">
             <div id="loader"></div>
