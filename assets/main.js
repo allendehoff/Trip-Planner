@@ -47,6 +47,10 @@ $("#userLocBtn").on("click", function () {
   getCurrentLoc();
 })
 
+$("#prevent").on("click", function(){
+  event.preventDefault()
+})
+
 
 function toggleWarning() {
   $([document.documentElement, document.body]).animate({
