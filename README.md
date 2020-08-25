@@ -36,3 +36,16 @@ THEN I am given restaurant options near that hotel.
 WHEN I enter my starting location. 
 
 THEN I am given driving directions from my location to the hotel I selected.
+
+## Future Development
+In the future, we plan to implement the following features when time allows:
+<br/>
+<br/>
+For the hotel search, it would be useful to add the ability to search for hotels based on whether or not they have specific ammenities. 
+
+For the driving directions, it would be useful to give the user the option to select places along their route to make stops and give them hotel and restaurant information at those stops. 
+
+In addition to the restaurants returned to the user, it would be useful to also return additional attractions at the destination.
+
+![](assets/Demo/hotels.gif)
+![](assets/Demo/map-restaurant.gif)
