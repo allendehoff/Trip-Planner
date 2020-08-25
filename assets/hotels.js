@@ -36,7 +36,7 @@ function citySearch() {
 }
 
 function hotelList(area) {
-    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=1&order=asc&lang=en_US&sort=recommended&location_id=" + area;
+    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=5&order=asc&lang=en_US&sort=recommended&location_id=" + area;
     console.log(queryURL)
 
     var settings = {

@@ -26,6 +26,15 @@ body {
     background-color: white;
 }
 
+#restaurantResults {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.accordion-title {
+    font-size: 1.25rem;
+}
+
 .warning {
     color: red;
     font-style: italic;
