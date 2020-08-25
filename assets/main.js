@@ -3,13 +3,17 @@
 $("#searchButton").on("click", function (event) {
   event.preventDefault();
   $(".warning").addClass("hide");
-
+  $("#restaurants").addClass("hide");
+  $("#drivingDirections").addClass("hide");
   
 
   console.log($("#endLoc").val().trim());
   if ($("#endLoc").val().trim() !== "") {
-    $(".hotel-info").remove()
+    $(".hotel-info").remove();
+    $("#restaurantResults").remove();
+    $("#map").empty();
     citySearch()
+    $("#results").removeClass("hide");
   }
   else {
     toggleWarning();
@@ -24,6 +28,7 @@ $(document).on("click", ".hotel-address", function () {
   $("#restaurantResults").remove()
 
   restaurantSearch(hotelZip)
+  $("#restaurants").removeClass("hide");
 
   if ($("#startLoc").val().trim() !== "") {
     // Show map
@@ -32,6 +37,7 @@ $(document).on("click", ".hotel-address", function () {
     var origin = $("#startLoc").val();
     var destination = $(this).text()
     Geocode2Addresses(origin, destination)
+    $("#drivingDirections").removeClass("hide");
   } else {
     toggleWarning();
     $("#start-loc-warning").removeClass("hide");
