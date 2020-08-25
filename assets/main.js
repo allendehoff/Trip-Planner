@@ -9,11 +9,12 @@ $("#searchButton").on("click", function (event) {
 
   console.log($("#endLoc").val().trim());
   if ($("#endLoc").val().trim() !== "") {
-    $(".hotel-info").remove();
-    $("#restaurantResults").remove();
-    $("#map").empty();
-    citySearch()
-    $("#results").removeClass("hide");
+    // $(".hotel-info").remove();
+    // $("#restaurantResults").remove();
+    // $("#map").empty();
+    // citySearch()
+    validateDestination();
+    // $("#results").removeClass("hide");
   }
   else {
     toggleWarning();

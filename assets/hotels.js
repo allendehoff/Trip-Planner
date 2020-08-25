@@ -26,13 +26,7 @@ function citySearch() {
             console.log(response);
             locationID = response.data[0].result_object.location_id;
             hotelList(locationID);
-        })
-        // .catch(function (error) {
-        //     console.log("Error row 49: ");
-        //     console.log(error);
-        //     $("#overlay").addClass("hide");
-        //     $("end-loc-warning").removeClass("hide")
-        // });
+        });
 }
 
 function hotelList(area) {
@@ -58,13 +52,7 @@ function hotelList(area) {
                 locationID = response.data[i].location_id;
                 specifiedHotel(locationID);
             }
-        })
-        // .catch(function (error) {
-        //     console.log("Error row 49: ");
-        //     console.log(error);
-        //     $("#overlay").addClass("hide");
-        //     $("end-loc-warning").removeClass("hide")
-        // });
+        });
 }
 
 function specifiedHotel(hotel) {
@@ -129,13 +117,7 @@ function specifiedHotel(hotel) {
         hotelPhone.text(convertPhone);
         hotelPhone.addClass("hotel-phone");
         hotelContact.append(hotelPhone);
-    })
-    // .catch(function (error) {
-    //     console.log("Error row 49: ");
-    //     console.log(error);
-    //     $("#overlay").addClass("hide");
-    //     $("end-loc-warning").removeClass("hide")
-    // });
+    });
 }
 
 function formatPhoneNumber(phoneNumberString) {
@@ -145,4 +127,44 @@ function formatPhoneNumber(phoneNumberString) {
         return '(' + match[1] + ') ' + match[2] + '-' + match[3]
     }
     return null
+}
+
+function validateDestination(){
+    var destinationSplit = $("#endLoc").val().split(/[,]+/)
+    var city = destinationSplit[0].trim();
+    var state = destinationSplit[1].trim();
+    console.log(city, state);
+    var queryURL = "https://geohub3.p.rapidapi.com/cities/search/" + city + "?countryCode=US&page=1&pageSize=10&regionCode=" + state;
+    console.log(queryURL);
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": queryURL,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "geohub3.p.rapidapi.com",
+            "x-rapidapi-key": "7ab34ca805msh00c099c8c3cb117p1922e6jsn1fc9f9f2a686"
+        },
+        "beforeSend": function () {
+            $("#overlay").removeClass("hide");
+        },
+        "complete": function () {
+            $("#overlay").addClass("hide");
+        }
+    }
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        if (response.data.cities.length !== 0){
+            $(".hotel-info").remove();
+            $("#restaurantResults").remove();
+            $("#map").empty();
+            citySearch();
+            $("#results").removeClass("hide");
+        } else {
+            console.log("ERROR");
+            $("#end-loc-warning").removeClass("hide");
+            return false;
+        }
+    });
 }
