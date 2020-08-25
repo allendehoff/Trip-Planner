@@ -1,9 +1,5 @@
 var locationID;
-// --------- in main.js -------------
-// $("#searchButton").on("click", function(event){
-//     event.preventDefault();
-//     citySearch();
-// });
+
 function citySearch() {
     var cityState = $("#endLoc").val();
     var queryURL = "https://tripadvisor1.p.rapidapi.com/locations/search?location_id=1&limit=1&sort=relevance&offset=0&lang=en_US&currency=USD&units=km&query=" + cityState;
@@ -16,12 +12,14 @@ function citySearch() {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
             "x-rapidapi-key": "d305cfdceamsh2dc3f79acdaa06cp1ec18fjsna1715374cdb5"
         },
+        // Makes the laoding screen appear when this function is run
         "beforeSend": function () {
             $("#overlay").removeClass("hide");
         }
     }
 
     $.ajax(settings)
+        // Grabs the trip advisor specific lacation ID for the searched city and applies it to the hotelList function
         .then(function (response) {
             console.log(response);
             locationID = response.data[0].result_object.location_id;
@@ -45,9 +43,10 @@ function hotelList(area) {
     }
 
     $.ajax(settings)
+        // Grabs the trip advisor specific lacation ID for the hotels in the list and applies it to the specifiedHotel function
         .then(function (response) {
             console.log(response);
-
+            // Calls the specifiedHotel function for each of teh hotels in the list
             for (var i = 0; i < response.data.length; i++) {
                 locationID = response.data[i].location_id;
                 specifiedHotel(locationID);
@@ -66,11 +65,12 @@ function specifiedHotel(hotel) {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
             "x-rapidapi-key": "d305cfdceamsh2dc3f79acdaa06cp1ec18fjsna1715374cdb5"
         },
+        // Hides the loading screen once the hotel information is gathered
         "complete": function () {
             $("#overlay").addClass("hide");
         }
     }
-
+    // Creates the hotel information and appends it to the page
     $.ajax(settings).then(function (response) {
         console.log(response);
 
@@ -99,12 +99,13 @@ function specifiedHotel(hotel) {
         hotelWebsite.text(response.data[0].website);
         hotelPriceRange.addClass("hotel-price");
         hotelPriceRange.text(response.data[0].price);
-        hotelAddress.attr("data-zip", zipCode);
+        hotelAddress.attr("data-zip", zipCode); // Sets a data attribute on the address for the Zip Code that can be used in the restaurant search JS file
 
         hotelContact.append(hotelAddress, hotelWebsite);
         hotelDiv.append(hotelImage, hotelName, hotelContact, hotelPriceRange);
         $("#hotels").append(hotelDiv);
 
+        // Grabs the phone number and gets rid of anything before the area code
         var phone = response.data[0].phone;
         var numberOnly = "";
         for (var i = phone.length - 1; numberOnly.length < 10; i--) {
@@ -120,6 +121,7 @@ function specifiedHotel(hotel) {
     });
 }
 
+// Converts the phone number to a uniform format
 function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
@@ -130,6 +132,7 @@ function formatPhoneNumber(phoneNumberString) {
 }
 
 function validateDestination(){
+    // Validates the Destination input to only allow a real city and state in the format of (city, state abbreviation)
     var destinationSplit = $("#endLoc").val().split(/[,]+/);
     if (destinationSplit.length > 1){
         var city = destinationSplit[0].trim();
@@ -159,6 +162,7 @@ function validateDestination(){
         }
     }
     
+    // Runs the citySearch funciton if the above if statement is true
     $.ajax(settings).done(function (response) {
         console.log(response);
         if (response.data.cities.length !== 0){
