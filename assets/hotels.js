@@ -155,7 +155,7 @@ function validateDestination(){
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "geohub3.p.rapidapi.com",
-            "x-rapidapi-key": "7ab34ca805msh00c099c8c3cb117p1922e6jsn1fc9f9f2a686"
+            "x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
         }
     }
     
