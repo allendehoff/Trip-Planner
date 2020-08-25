@@ -32,19 +32,14 @@
                             <label>Starting Location
                             <button id="userLocBtn" class="fas fa-search-location"></button>
                                 <input type="text" placeholder="Street address, City, State" id="startLoc">
-                                <p class="warning hide">Please enter a valid address</p>
+                                <p id="start-loc-warning" class="warning hide">Please enter a valid address</p>
                             </label>
                         </div>
-                        <!-- <div class="medium-4 cell">
-                            <label> Hotel Check-in Date
-                                <input id="check-in" type="date" placeholder="MM/DD/YYYY">
-                                <p class="warning hide"> Please enter a valid date</p>
-                            </label>
-                        </div> -->
+
                         <div class="medium-4 cell">
                             <label>Destination
                                 <input type="text" placeholder="City, State" id="endLoc">
-                                <p class="warning hide">Please enter a valid City and State</p>
+                                <p id="end-loc-warning" class="warning hide">Please enter a valid City and State</p>
                             </label>
                         </div>
                         <button class="button primary cell" id="searchButton">Search</button>
@@ -57,7 +52,7 @@
                 <h4>Click hotel address for directions and local restaurants.</h4>
             </div>
             <div id="drivingDirections" class="cell">
-                <h3>Driving Directions:</h3>
+                <h3>Driving Information:</h3>
                 <div id="map"></div>
             </div>
             <h3 id="restaurants" class="cell">Restaurants at Destination:</h3>

@@ -42,6 +42,14 @@
     margin-top: 5px;
 }
 
+/* Added to represent the address is clickable */
+.hotel-address:hover {
+    color: #3C6E71;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
 @media (max-width: 900px){
     .hotel-info {
         grid-template-areas: 
