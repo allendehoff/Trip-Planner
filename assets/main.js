@@ -9,12 +9,8 @@ $("#searchButton").on("click", function (event) {
 
   console.log($("#endLoc").val().trim());
   if ($("#endLoc").val().trim() !== "") {
-    // $(".hotel-info").remove();
-    // $("#restaurantResults").remove();
-    // $("#map").empty();
-    // citySearch()
+
     validateDestination();
-    // $("#results").removeClass("hide");
   }
   else {
     toggleWarning();
@@ -24,7 +20,7 @@ $("#searchButton").on("click", function (event) {
 
 $(document).on("click", ".hotel-address", function () {
   $(".warning").addClass("hide");
-  $("#start-loc-warning").text('Please enter a valid address');
+  $("#start-loc-warning").text('Please enter a valid address for directions');
   var hotelZip = $(this).attr("data-zip")
   $("#restaurantResults").remove()
 
@@ -53,6 +49,9 @@ $("#userLocBtn").on("click", function () {
 
 
 function toggleWarning() {
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $("#search").offset().top
+  }, 500);
 
   console.log("ERROR");
 }

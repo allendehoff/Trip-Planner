@@ -14,7 +14,7 @@ function citySearch() {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
+            "x-rapidapi-key": "d305cfdceamsh2dc3f79acdaa06cp1ec18fjsna1715374cdb5"
         },
         "beforeSend": function () {
             $("#overlay").removeClass("hide");
@@ -30,7 +30,7 @@ function citySearch() {
 }
 
 function hotelList(area) {
-    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=5&order=asc&lang=en_US&sort=recommended&location_id=" + area;
+    var queryURL = "https://tripadvisor1.p.rapidapi.com/hotels/list?offset=0&currency=USD&limit=3&order=asc&lang=en_US&sort=recommended&location_id=" + area;
     console.log(queryURL)
 
     var settings = {
@@ -40,7 +40,7 @@ function hotelList(area) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
+            "x-rapidapi-key": "d305cfdceamsh2dc3f79acdaa06cp1ec18fjsna1715374cdb5"
         }
     }
 
@@ -64,7 +64,7 @@ function specifiedHotel(hotel) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "c775624d1bmsha92167b41ec9708p16ea60jsn22d51256668b"
+            "x-rapidapi-key": "d305cfdceamsh2dc3f79acdaa06cp1ec18fjsna1715374cdb5"
         },
         "complete": function () {
             $("#overlay").addClass("hide");
@@ -130,10 +130,22 @@ function formatPhoneNumber(phoneNumberString) {
 }
 
 function validateDestination(){
-    var destinationSplit = $("#endLoc").val().split(/[,]+/)
-    var city = destinationSplit[0].trim();
-    var state = destinationSplit[1].trim();
-    console.log(city, state);
+    var destinationSplit = $("#endLoc").val().split(/[,]+/);
+    if (destinationSplit.length > 1){
+        var city = destinationSplit[0].trim();
+        var state = destinationSplit[1].trim();
+        console.log(city, state);
+        if (state.length !== 2){
+            console.log("Taco");
+            $("#end-loc-warning").removeClass("hide");
+            return false;
+        }
+    } else {
+        console.log("error");
+        $("#end-loc-warning").removeClass("hide");
+        return false;
+    }
+
     var queryURL = "https://geohub3.p.rapidapi.com/cities/search/" + city + "?countryCode=US&page=1&pageSize=10&regionCode=" + state;
     console.log(queryURL);
     var settings = {
@@ -144,12 +156,6 @@ function validateDestination(){
         "headers": {
             "x-rapidapi-host": "geohub3.p.rapidapi.com",
             "x-rapidapi-key": "7ab34ca805msh00c099c8c3cb117p1922e6jsn1fc9f9f2a686"
-        },
-        "beforeSend": function () {
-            $("#overlay").removeClass("hide");
-        },
-        "complete": function () {
-            $("#overlay").addClass("hide");
         }
     }
     
