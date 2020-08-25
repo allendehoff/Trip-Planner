@@ -47,5 +47,8 @@ For the driving directions, it would be useful to give the user the option to se
 
 In addition to the restaurants returned to the user, it would be useful to also return additional attractions at the destination.
 
+## Deployed Website
+https://allendehoff.github.io/Project1/
+
 ![](assets/Demo/hotels.gif)
 ![](assets/Demo/map-restaurant.gif)
