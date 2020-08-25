@@ -2,33 +2,50 @@
 
 $("#searchButton").on("click", function (event) {
   event.preventDefault();
-  if (($("#startLoc") || $("#endLoc")).val().trim() !== ""){
+  $(".warning").addClass("hide");
+
+  
+
+  console.log($("#endLoc").val().trim());
+  if ($("#endLoc").val().trim() !== "") {
+    $(".hotel-info").remove()
     citySearch()
   }
-  else {toggleWarning();}
+  else {
+    toggleWarning();
+    $("#end-loc-warning").removeClass("hide");
+  }
 });
 
 $(document).on("click", ".hotel-address", function () {
+  $(".warning").addClass("hide");
+  $("#start-loc-warning").text('Please enter a valid address');
   var hotelZip = $(this).attr("data-zip")
+  $("#restaurantResults").remove()
+
   restaurantSearch(hotelZip)
 
-  // Show map
-  $("#map").css("display", "block");
-  // Render Maps and catch directions, distance and time
-  var origin = $("#startLoc").val();
-  var destination = $(this).text()
-  Geocode2Addresses(origin, destination)
-
+  if ($("#startLoc").val().trim() !== "") {
+    // Show map
+    $("#map").css("display", "block");
+    // Render Maps and catch directions, distance and time
+    var origin = $("#startLoc").val();
+    var destination = $(this).text()
+    Geocode2Addresses(origin, destination)
+  } else {
+    toggleWarning();
+    $("#start-loc-warning").removeClass("hide");
+  }
 })
 
 
-$("#userLocBtn").on("click", function(){
+$("#userLocBtn").on("click", function () {
   event.preventDefault();
   getCurrentLoc();
 })
 
-  
-function toggleWarning(){
 
-  console.log("ERROR")
+function toggleWarning() {
+
+  console.log("ERROR");
 }

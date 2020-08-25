@@ -23,7 +23,7 @@ function getdirections(oLat, oLon, dLat, dLon) {
     // Requesting driving info
     $.ajax(settings)
         .done(function (response) {
-            console.log("Driving");
+            // console.log("Driving");
 
             // Get distance
             inMeterInt = response.features[0].properties.distance; // in meters
@@ -33,12 +33,7 @@ function getdirections(oLat, oLon, dLat, dLon) {
             inHHmmStr = convertSecondsToHms(inSecondsInt);  // in Hours  minutes    
             // Get Route Directions
             var directions = response.features[0].properties.legs[0].steps;
-            console.table(directions);
-            // Directions
-            // steps = {}
-            // for (step of directions) {
-            //     steps = {};
-            // }
+            // console.table(directions);
 
             renderMapWithPoints(oLat, oLon, dLat, dLon, inMilesStr, inHHmmStr);
             // return driving;
@@ -46,9 +41,11 @@ function getdirections(oLat, oLon, dLat, dLon) {
         // When request returns error
         .fail(function (xhr, status, error) {
             if (status !== "OK") {
-                console.log("Error - HERE:");
-                console.log(xhr.responseText);
+                // console.log("Error - HERE:");
+                // console.log(xhr.responseText);
+                $("#start-loc-warning").removeClass("hide");
             }
+            $("#overlay").addClass("hide");
         });
 
     function convertSecondsToHms(seconds) {
